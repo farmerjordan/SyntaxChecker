@@ -4,12 +4,12 @@
 #include <iostream>
 using namespace std;
 
-class DelimiterChecker{
+class DelimiterCheck{
 
   public:
 
-    DelimiterChecker();
-    ~DelimiterChecker();
+    DelimiterCheck();
+    ~DelimiterCheck();
 
     void Check(string inputFile);
 };

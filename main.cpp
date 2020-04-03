@@ -7,12 +7,15 @@ using namespace std;
 
 int main(int argc, char** argv){
 
+  //Instance of Delimiter Check class
+  DelimiterCheck thisCheck;
+
   if(argc > 1){
     string inputFile = argv[1];
     cout << "File to be checked: " << inputFile << endl;
   }
 
-  
+  thisCheck.Check(inputFile);
 
   bool doAgain = true;
   string repeat;
@@ -44,7 +47,7 @@ int main(int argc, char** argv){
         cout << "Is this correct? Enter 'Y' or 'N'." << endl;
         cin >> verifyChoice;
 
-        //RUN PROGRAM HERE
+        thisCheck.Check(inputFile);
       }
     }else{
       cout << "That wasn't a valid option." << endl;
