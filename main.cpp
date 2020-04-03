@@ -1,5 +1,7 @@
 #include <iostream>
 #include <fstream>
+#include "GenStack.h"
+#include "DelimiterCheck.h"
 
 using namespace std;
 
@@ -10,7 +12,7 @@ int main(int argc, char** argv){
     cout << "File to be checked: " << inputFile << endl;
   }
 
-  //Run program here
+  
 
   bool doAgain = true;
   string repeat;
@@ -22,7 +24,6 @@ int main(int argc, char** argv){
     cout << "Would you like to check another file? Enter 'Y' or 'N'." << endl;
     cin >> repeat;
 
-    //Program exits
     if(repeat == "N" || repeat == "n"){
       doAgain = false;
     }else if(repeat == "Y" || repeat == "y"){

@@ -1,3 +1,6 @@
+#ifndef STACK
+#define STACK
+
 #include <iostream>
 using namespace std;
 
@@ -25,3 +28,5 @@ public:
   GS *myArray;
 
 };
+
+#endif
