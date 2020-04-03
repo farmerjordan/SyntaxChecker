@@ -64,3 +64,10 @@ template <class GS>
 bool GenStack<GS>::isEmpty(){
   return (top == -1);
 }
+
+//Explicit instantiation since I have separate .h and .cpp files
+//This program should only use char but for the purpose of versatility with the GenStack class I added all these data types
+template class GenStack<int>;
+template class GenStack<float>;
+template class GenStack<char>;
+template class GenStack<string>;
