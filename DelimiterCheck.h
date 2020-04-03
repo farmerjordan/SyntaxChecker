@@ -7,10 +7,6 @@ using namespace std;
 class DelimiterCheck{
 
   public:
-
-    DelimiterCheck();
-    ~DelimiterCheck();
-
     void Check(string inputFile);
 };
 

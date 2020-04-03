@@ -4,6 +4,8 @@
 #include "DelimiterCheck.h"
 using namespace std;
 
+
+
 void DelimiterCheck::Check(string inputFile){
 
     //Variables for iteration

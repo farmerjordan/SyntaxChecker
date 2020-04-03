@@ -13,9 +13,12 @@ int main(int argc, char** argv){
   if(argc > 1){
     string inputFile = argv[1];
     cout << "File to be checked: " << inputFile << endl;
+    thisCheck.Check(inputFile);
+  }else{
+    cout << "Please give a file as a command line argument." << endl;
   }
 
-  thisCheck.Check(inputFile);
+
 
   bool doAgain = true;
   string repeat;
