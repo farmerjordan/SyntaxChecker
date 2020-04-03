@@ -50,8 +50,10 @@ int main(int argc, char** argv){
         cout << "Is this correct? Enter 'Y' or 'N'." << endl;
         cin >> verifyChoice;
 
-        thisCheck.Check(inputFile);
       }
+      thisCheck.Check(inputFile);
+
+
     }else{
       cout << "That wasn't a valid option." << endl;
     }

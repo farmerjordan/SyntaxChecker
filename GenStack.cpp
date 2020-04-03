@@ -26,8 +26,16 @@ template <class GS>
 void GenStack<GS>::push(GS data){
   //Check if the array is full
   if(isFull()){
-    cout << "Stack is full. Cannot add element." << endl;
-    exit(EXIT_FAILURE);
+    GS* tempArray;
+    tempArray = new GS[size];
+
+    for(int i = 0; i < size; i++){
+      tempArray[i] = myArray[i];
+    }
+
+    size++;
+    delete [] myArray;
+    myArray = tempArray;
   }
 
   myArray[++top] = data;

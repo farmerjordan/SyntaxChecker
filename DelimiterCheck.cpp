@@ -10,7 +10,7 @@ void DelimiterCheck::Check(string inputFile){
 
     //Variables for iteration
     string currentLine;
-    int lineCount = 0;
+    int lineCount = -1;
 
     //Instance of file stream
     ifstream checkFile;
@@ -22,14 +22,11 @@ void DelimiterCheck::Check(string inputFile){
     while (!checkFile.eof()){
         getline(checkFile, currentLine);
         lineCount++;
-        cout << "This file has " << lineCount << " lines." << endl;
     }
+    cout << "This file has " << lineCount << " lines." << endl;
 
     //Instance of GenStack class to use the methods
     GenStack<char> myStack(lineCount);
-
-    //Resetting line count
-    lineCount = 0;
 
     //Returning to top of file to do actual delimiter checking
     checkFile.clear();
@@ -38,36 +35,40 @@ void DelimiterCheck::Check(string inputFile){
 
     while(!checkFile.eof()){
       getline(checkFile, currentLine);
-      lineCount++;
 
-      for(int i = 0; i < lineCount; ++i){
+
+      for(int i = 0; i < currentLine.length(); i++){
+
 
         if(currentLine[i] == '(' || currentLine[i] == '{' || currentLine[i] == '['){
           myStack.push(currentLine[i]);
+
         }else if(currentLine[i] == ')' || currentLine[i] == '}' || currentLine[i] == ']'){
+
 
           char openingDelim = myStack.pop();
           char closingDelim = currentLine[i];
 
+
+
           //Checking that delimiters match
           if(!((openingDelim == '(' && closingDelim == ')') || (openingDelim == '{' && closingDelim == '}') || (openingDelim == '[' && closingDelim == ']'))){
             if(openingDelim == '('){
-              cout << "Delimiter mismatch. Expected ')' but found " << closingDelim << "instead. Error at line number " << currentLine << endl;
+              cout << "Delimiter mismatch. Expected ')' but found " << closingDelim << " instead. Error at line number " << lineCount << endl;
             }else if(openingDelim == '{'){
-              cout << "Delimiter mismatch. Expected '}' but found " << closingDelim << "instead. Error at line number " << currentLine << endl;
+              cout << "Delimiter mismatch. Expected '}' but found " << closingDelim << " instead. Error at line number " << lineCount << endl;
             }else{
-              cout << "Delimiter mismatch. Expected ']' but found " << closingDelim << "instead. Error at line number " << currentLine << endl;
+              cout << "Delimiter mismatch. Expected ']' but found " << closingDelim << " instead. Error at line number " << lineCount << endl;
             }
+
+            //Exiting to allow user to fix issues
+            exit(1);
           }
-
-          //Exiting to allow user to fix issues
-          exit(1);
         }
-
-
       }
-
     }
+
+
 
     //Checking if the file needs more delimiters at the end
     if(!(myStack.isEmpty())){
