@@ -7,7 +7,7 @@
 #this Makefile goes in the src directory
 
 #change this to the correct assignment #
-EXECUTABLE := SyntaxChecker
+EXECUTABLE := Checker
 
 # the source files to be built
 SOURCES := *.cpp

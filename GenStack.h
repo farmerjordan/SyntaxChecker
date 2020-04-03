@@ -11,7 +11,7 @@ public:
   ~GenStack(); //destructor
 
   //Core functions
-  void push (GS x)
+  void push (GS x);
   GS pop();
 
   //Helper functions
